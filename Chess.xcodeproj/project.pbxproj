@@ -16,6 +16,7 @@
 		1064802829E49573006FCD5C /* ChessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1064802729E49573006FCD5C /* ChessTests.swift */; };
 		1064803229E49573006FCD5C /* ChessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1064803129E49573006FCD5C /* ChessUITests.swift */; };
 		1064803429E49573006FCD5C /* ChessUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1064803329E49573006FCD5C /* ChessUITestsLaunchTests.swift */; };
+		1064804529E4A142006FCD5C /* AppImport in Frameworks */ = {isa = PBXBuildFile; productRef = 1064804429E4A142006FCD5C /* AppImport */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,10 @@
 		1064802D29E49573006FCD5C /* ChessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1064803129E49573006FCD5C /* ChessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessUITests.swift; sourceTree = "<group>"; };
 		1064803329E49573006FCD5C /* ChessUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1064804029E495D2006FCD5C /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Models; path = Modules/Models; sourceTree = "<group>"; };
+		1064804129E49688006FCD5C /* AppImport */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppImport; path = Modules/AppImport; sourceTree = "<group>"; };
+		1064804229E4A09C006FCD5C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1064804629E4A243006FCD5C /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1064804529E4A142006FCD5C /* AppImport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +85,15 @@
 		1064800429E49570006FCD5C = {
 			isa = PBXGroup;
 			children = (
+				1064804229E4A09C006FCD5C /* README.md */,
+				1064804129E49688006FCD5C /* AppImport */,
+				1064804029E495D2006FCD5C /* Models */,
 				1064800F29E49570006FCD5C /* Chess */,
 				1064802629E49573006FCD5C /* ChessTests */,
 				1064803029E49573006FCD5C /* ChessUITests */,
+				1064804729E4A24D006FCD5C /* Docs */,
 				1064800E29E49570006FCD5C /* Products */,
+				1064804329E4A142006FCD5C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +138,21 @@
 			path = ChessUITests;
 			sourceTree = "<group>";
 		};
+		1064804329E4A142006FCD5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1064804729E4A24D006FCD5C /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				1064804629E4A243006FCD5C /* LICENSE */,
+			);
+			name = Docs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +169,9 @@
 			dependencies = (
 			);
 			name = Chess;
+			packageProductDependencies = (
+				1064804429E4A142006FCD5C /* AppImport */,
+			);
 			productName = Chess;
 			productReference = 1064800D29E49570006FCD5C /* Chess.app */;
 			productType = "com.apple.product-type.application";
@@ -445,6 +474,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,6 +503,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -602,6 +633,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1064804429E4A142006FCD5C /* AppImport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppImport;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1064800529E49570006FCD5C /* Project object */;
 }
