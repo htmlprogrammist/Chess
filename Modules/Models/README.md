@@ -1,3 +1,3 @@
 # Models
 
-A description of this package.
+A model layer of the application

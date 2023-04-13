@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import Models
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let board = Board()
+        print(board[.a, 8].letter, board[.a, 8].row)
+        print(board[.h, 1].letter, board[.h, 1].row)
     }
-
-
 }
-
