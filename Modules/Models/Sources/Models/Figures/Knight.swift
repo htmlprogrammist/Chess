@@ -6,9 +6,29 @@
 //  Copyright © 2023 Егор Бадмаев. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public final class Knight: Figure {
+    
+    public override var symbol: String {
+        switch color {
+        case .white:
+            return "♞"
+        case .black:
+            return "♘"
+        }
+    }
+    
+    // MARK: - Init
+    
+    public init(color: Color, field: Field? = nil) {
+        super.init(
+            name: "Knight",
+            image: UIImage(systemName: "checkerboard.rectangle"),
+            color: color,
+            field: field
+        )
+    }
 }
 
 extension Knight: Movable {

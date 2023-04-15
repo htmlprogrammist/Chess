@@ -16,8 +16,7 @@ public final class Field {
     public let letter: Letter
     public let row: Int
     public let color: Color
-    
-    public weak var piece: Figure?
+    public var piece: Figure?
     
     // MARK: - Init
     public init(letter: Letter, row: Int, color: Color, piece: Figure? = nil) {
@@ -25,5 +24,12 @@ public final class Field {
         self.row = row
         self.color = color
         self.piece = piece
+    }
+}
+
+extension Field: CustomDebugStringConvertible {
+    
+    public var debugDescription: String {
+        "\(letter)\(row) \(color)"
     }
 }

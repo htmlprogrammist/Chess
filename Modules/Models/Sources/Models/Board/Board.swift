@@ -8,10 +8,6 @@
 
 import Foundation
 
-/*
-TODO: Сделать Board как DiffableDataSource - это будет как коллекция, а item'ы (ячейки) - Field
- А пока будет как коллекция, через subscript
- */
 public final class Board {
     
     private enum Constants {
@@ -19,9 +15,11 @@ public final class Board {
         static let maxRowIndex: Int = 8
     }
     
-    // MARK: - Public Properties
+    // MARK: - Private Properties
     
-    public var fields: [Field]
+    private var fields: [Field]
+    
+    // MARK: - Public Properties
     
     // MARK: - Init
     
@@ -30,28 +28,50 @@ public final class Board {
         for i in 0..<64 {
             let field = Field(
                 letter: Letter(rawValue: i % Constants.maxRowIndex) ?? .a,
-                row: (i % Constants.maxRowIndex) + 1,
-                color: Color(rawValue: i % 2) ?? .white
+                row: abs((i / Constants.maxRowIndex) - Constants.maxRowIndex),
+                color: Color(
+                    rawValue: (i / Constants.maxRowIndex) + i % Constants.maxRowIndex % 2
+                ) ?? .white
             )
             fields.append(field)
         }
-        print(fields[0].letter, fields[0].row, fields[0].color)
-        print(fields[63].letter, fields[63].row, fields[63].color)
         self.fields = fields
+        arrangeChessPiecesOnBoard()
     }
     
     public subscript(letter: Letter, row: Int) -> Field {
         get {
             assert(isRowValid(row), "Row index is out of range")
-            return fields[letter.rawValue * Constants.maxRowIndex + (row - 1)]
+            return fields[abs(row - Constants.maxRowIndex) + letter.rawValue]
         }
         set {
             assert(isRowValid(row), "Row index is out of range")
-            fields[letter.rawValue * Constants.maxRowIndex + (row - 1)] = newValue
+            fields[abs(row - Constants.maxRowIndex) + letter.rawValue] = newValue
         }
     }
     
     // MARK: - Private Methods
+    
+    private func arrangeChessPiecesOnBoard() {
+        arrangeChessPieces(with: .white, on: Constants.minRowIndex)
+        arrangeChessPieces(with: .black, on: Constants.maxRowIndex)
+    }
+    
+    private func arrangeChessPieces(with color: Color, on row: Int) {
+        let pawnRowConstant = color == .white ? 1 : -1
+        for letter in Letter.allCases {
+            self[letter, row + pawnRowConstant].piece = Pawn(color: color)
+        }
+        
+        self[.a, row].piece = Rook(color: color)
+        self[.b, row].piece = Knight(color: color)
+        self[.c, row].piece = Bishop(color: color)
+        self[.d, row].piece = Queen(color: color)
+        self[.e, row].piece = King(color: color)
+        self[.f, row].piece = Bishop(color: color)
+        self[.g, row].piece = Knight(color: color)
+        self[.h, row].piece = Rook(color: color)
+    }
     
     /// Checks whether row is valid or not.
     ///
@@ -60,5 +80,24 @@ public final class Board {
     /// - Returns: `true` if row is valid, `false` if not.
     private func isRowValid(_ row: Int) -> Bool {
         return row >= Constants.minRowIndex && row <= Constants.maxRowIndex
+    }
+}
+
+extension Board: CustomStringConvertible, CustomDebugStringConvertible {
+    
+    public var description: String {
+        var piecesCount: Int = 0
+        for field in fields {
+            if field.piece != nil {
+                piecesCount += 1
+            }
+        }
+        // TODO: Rewrite with more useful information that will be shown to the user
+        return "There is \(piecesCount) pieces left on the board"
+    }
+    
+    public var debugDescription: String {
+        var result = "  1  2  3  4  5  6  7  8\n"
+        return result
     }
 }

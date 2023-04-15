@@ -6,10 +6,32 @@
 //  Copyright © 2023 Егор Бадмаев. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public final class Rook: Figure {
+    
+    public override var symbol: String {
+        switch color {
+        case .white:
+            return "♜"
+        case .black:
+            return "♖"
+        }
+    }
+    
+    // MARK: - Init
+    
+    public init(color: Color, field: Field? = nil) {
+        super.init(
+            name: "Rook",
+            image: UIImage(systemName: "checkerboard.rectangle"),
+            color: color,
+            field: field
+        )
+    }
 }
+
+// MARK: - Movable
 
 extension Rook: Movable {
     

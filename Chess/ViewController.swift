@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let board = Board()
-        print(board[.a, 8].letter, board[.a, 8].row)
-        print(board[.h, 1].letter, board[.h, 1].row)
+        print(board[.a, 8].debugDescription)
+        print(board[.h, 1].debugDescription)
     }
 }
