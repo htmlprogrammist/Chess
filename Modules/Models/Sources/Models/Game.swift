@@ -6,8 +6,13 @@
 //  Copyright © 2023 Chess. All rights reserved.
 //
 
-import Foundation
-
 public final class Game {
     
+    // MARK: - Public Properties
+    
+    public static let shared = Game()
+    
+    // MARK: - Init
+    
+    private init() {}
 }

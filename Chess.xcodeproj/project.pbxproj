@@ -55,6 +55,7 @@
 		1064804129E49688006FCD5C /* AppImport */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppImport; path = Modules/AppImport; sourceTree = "<group>"; };
 		1064804229E4A09C006FCD5C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1064804629E4A243006FCD5C /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		10EA35D429E8A28D003BD24D /* ResourcesKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ResourcesKit; path = Modules/ResourcesKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +87,11 @@
 		1064800429E49570006FCD5C = {
 			isa = PBXGroup;
 			children = (
-				101DE7E529E6814E0077C821 /* DesignSystem */,
 				1064804229E4A09C006FCD5C /* README.md */,
 				1064804129E49688006FCD5C /* AppImport */,
+				101DE7E529E6814E0077C821 /* DesignSystem */,
 				1064804029E495D2006FCD5C /* Models */,
+				10EA35D429E8A28D003BD24D /* ResourcesKit */,
 				1064800F29E49570006FCD5C /* Chess */,
 				1064802629E49573006FCD5C /* ChessTests */,
 				1064803029E49573006FCD5C /* ChessUITests */,

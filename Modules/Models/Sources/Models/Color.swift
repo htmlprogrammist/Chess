@@ -7,6 +7,6 @@
 //
 
 /// Describes color of the chess figures.
-public enum Color {
+public enum Color: Int, CaseIterable {
     case white, black
 }
